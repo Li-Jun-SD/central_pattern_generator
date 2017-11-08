@@ -2,8 +2,6 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QtCharts>
-using namespace QtCharts;
 
 namespace Ui {
 class Widget;

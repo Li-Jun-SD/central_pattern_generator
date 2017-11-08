@@ -1,10 +1,10 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-11-08T10:28:04
+# Project created by QtCreator 2017-11-09T01:10:00
 #
 #-------------------------------------------------
 
-QT       += core gui charts
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,12 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        widget.cpp \
+        mainwindow.cpp \
     cpg.cpp
 
 HEADERS += \
-        widget.h \
+        mainwindow.h \
     cpg.h
 
 FORMS += \
-        widget.ui
+        mainwindow.ui
