@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>602</width>
+    <height>381</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <widget class="QChartView" name="chart" native="true">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>21</y>
+     <width>561</width>
+     <height>301</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonWalk">
+   <property name="geometry">
+    <rect>
+     <x>496</x>
+     <y>338</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>stop</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonStop">
+   <property name="geometry">
+    <rect>
+     <x>364</x>
+     <y>338</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>walk</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QWidget</extends>
+   <header>QChartView</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
