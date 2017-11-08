@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     double x[2] = {3.76, 3.76};
     network.setX(x);
     network.setTime(1000.0);
-    for (int i = 0; i < 5000; i++) {
+    for (int i = 0; i < 7000; i++) {
         if (i == 2000) {
             double r[2] = {0, 0};
             network.setR(r);
@@ -29,6 +29,12 @@ int main(int argc, char *argv[])
             double r[2] = {12.94, 4.78};
             network.setR(r);
             double x[2] = {3.76, 3.76};
+            network.setX(x);
+        }
+        if (i == 4000) {
+            double r[2] = {0, 0};
+            network.setR(r);
+            double x[2] = {0, 0};
             network.setX(x);
         }
         qDebug() << network.update();
