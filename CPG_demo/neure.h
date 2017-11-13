@@ -8,14 +8,13 @@ public:
 
     // functions interface.
     void setRef(double r_ref, double x_ref, double o_ref, double t_ref, double g_ref);
-    void calculate(double *, double, double&out);
+    void calculate(double *, double, double &out);
     void cal(double &, double &, double &);
 
 private:
     // reference parameters and some parameters for calculate.
     double R, X, Omega, g, t;
-    // phase.
-    double phi[2];
+
     // state parameters.
     double r[3], x[3], omega[3];
 };

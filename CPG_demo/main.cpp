@@ -50,32 +50,38 @@ int main(int argc, char *argv[])
     //![1]
 
     //![2]
-    int T = 10000;
-    network.set(setWalk);
+    int T = 1000;
+//    network.set(setWalk);
     for (int i = 0; i < T; i++) {
-//        if (i == 2000)
-//            network.set(setWalk);
+        qDebug() << "**********" << i << "**********";
+
+        if (i == 2000)
+            network.set(setWalk);
         if (i == 7000)
             network.set(setStop);
+
         double lHipData, lKneeData, rHipData, rKneeData;
         network.update(lHipData, lKneeData, rHipData, rKneeData);
         seriesRHip->append(i, rHipData);
         seriesRKnee->append(i, rKneeData);
         seriesLHip->append(i, lHipData);
         seriesLKnee->append(i, lKneeData);
+
+        qDebug() << " ";
     }
     //![2]
 
     //![3]
     QChart *chart = new QChart();
     chart->legend()->show();
-//    chart->addSeries(seriesRHip);
-//    chart->addSeries(seriesRKnee);
+    chart->addSeries(seriesRHip);
+    chart->addSeries(seriesRKnee);
     chart->addSeries(seriesLHip);
     chart->addSeries(seriesLKnee);
     chart->setTitle("Central Pattern Generator");
     chart->createDefaultAxes();
-    chart->axisY()->setRange(-20, 70);
+    int height = 10;
+    chart->axisY()->setRange(-height, height);
     //![3]
 
     //![4]

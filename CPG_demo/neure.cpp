@@ -1,4 +1,5 @@
 #include "neure.h"
+#include <QDebug>
 
 neure::neure()
 {
@@ -13,6 +14,7 @@ void neure::setRef(double r_ref, double x_ref, double o_ref, double t_ref, doubl
     R     = r_ref;
     X     = x_ref;
     Omega = o_ref;
+
     g     = g_ref;
     t     = t_ref;
 }
@@ -20,6 +22,8 @@ void neure::setRef(double r_ref, double x_ref, double o_ref, double t_ref, doubl
 // calculate new data base on parts of CPG model.
 void neure::calculate(double *a, double ref, double &out)
 {
+//    qDebug() << a[0] << ", " << a[1] << ", " << a[2];
+
     // calculate position.
     a[0] = a[0] + a[1] * t;
     out = a[0];
@@ -27,6 +31,10 @@ void neure::calculate(double *a, double ref, double &out)
     a[1] = a[1] + a[2] * t;
     // calculate acceleration.
     a[2] = g / 4 * (g * (ref - a[0]) - a[1]);
+
+//    a[0] = a[0] + a[1] * t;
+//    out = a[0];
+//    a[1] = g * (ref - a[0]);
 }
 
 // return amplitude, offset and omega.
