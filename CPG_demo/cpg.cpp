@@ -54,10 +54,10 @@ double cpg::update()
         net[i].omega[0] = 2 * (net[i].omega_ref - net[i].omega[1]);
     }
 
-    net[0].phi[0] = net[0].omega[1] + 200 *
-                    sin(net[1].phi[1] - net[1].omega_ref / net[0].omega_ref * net[0].phi[1] - 1.63);
-    net[1].phi[0] = net[1].omega[1] + 200 *
-                    sin(net[0].phi[1] - net[0].omega_ref / net[1].omega_ref * net[1].phi[1] + 0.82);
+    net[0].phi[0] = net[0].omega[1] + 20 *
+                    sin(net[1].phi[1] - net[1].omega_ref / net[0].omega_ref * net[0].phi[1] + 1.02);
+    net[1].phi[0] = net[1].omega[1] + 20 *
+                    sin(net[0].phi[1] - net[0].omega_ref / net[1].omega_ref * net[1].phi[1] + 0.41);
     for (int i = 0; i < 2; i++) {
         net[i].y = net[i].r[1] * sin(net[i].phi[1]) + net[i].x[1];
     }
