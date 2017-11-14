@@ -1,5 +1,6 @@
 #include "cpg.h"
 #include <math.h>
+#include <QDebug>
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
@@ -28,14 +29,12 @@ int main(int argc, char *argv[])
     //![2]
     int T = 5000;
     // you must set network first before you can get gait data.
-    network.set(setStop1);
+    network.set(setWalk);
     for (int i = 0; i < T; i++) {
-        if (i == 500)
-            network.set(setWalk);
-        if (i == 3500)
-            network.set(setStop1);
-
         double lHipData, lKneeData, rHipData, rKneeData;
+        if (!(i % 10)) {
+            qDebug() << lKneeData;
+        }
         network.update(lHipData, lKneeData, rHipData, rKneeData);
         seriesRHip->append(i, rHipData);
         seriesRKnee->append(i, rKneeData);
@@ -49,11 +48,11 @@ int main(int argc, char *argv[])
     chart->legend()->show();
     chart->addSeries(seriesRHip);
     chart->addSeries(seriesRKnee);
-    chart->addSeries(seriesLHip);
-    chart->addSeries(seriesLKnee);
+//    chart->addSeries(seriesLHip);
+//    chart->addSeries(seriesLKnee);
     chart->setTitle("Central Pattern Generator");
     chart->createDefaultAxes();
-    chart->axisY()->setRange(-35, 80);
+    chart->axisY()->setRange(-50, 50);
     //![3]
 
     //![4]

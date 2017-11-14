@@ -1,4 +1,5 @@
 #include "cpg.h"
+#include <QDebug>
 
 cpg::cpg()
 {
