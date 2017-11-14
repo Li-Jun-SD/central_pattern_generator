@@ -3,10 +3,10 @@
 cpg::cpg()
 {
     time   =  0.001;
-    g      = 20;
-    weight =  2;
+    g      =  2;
+    weight = 20;
 
-    set(setStop);
+    set(setStop3);
 }
 
 void cpg::set(const double a[N][3])
@@ -39,7 +39,7 @@ void cpg::update(double &lHip, double &lKnee, double &rHip, double &rKnee)
         p[i][1] = o[i];
         for (int j = 0; j < N; j++) {
             p[i][1] += weight *
-                       sin (p[j][0] - Omega[j] / Omega[i] * p[i][0] - phi_lag[i][j]);
+                       sin (p[j][0] - Omega[j] / Omega[i] * p[i][0] + phi_lag[j][i]);
         }
     }
 

@@ -26,13 +26,14 @@ int main(int argc, char *argv[])
     //![1]
 
     //![2]
-    int T = 1000;
-    network.set(setWalk);
+    int T = 5000;
+    // you must set network first before you can get gait data.
+    network.set(setStop1);
     for (int i = 0; i < T; i++) {
-        if (i == 2000)
+        if (i == 500)
             network.set(setWalk);
-        if (i == 7000)
-            network.set(setStop);
+        if (i == 3500)
+            network.set(setStop1);
 
         double lHipData, lKneeData, rHipData, rKneeData;
         network.update(lHipData, lKneeData, rHipData, rKneeData);
@@ -52,8 +53,7 @@ int main(int argc, char *argv[])
     chart->addSeries(seriesLKnee);
     chart->setTitle("Central Pattern Generator");
     chart->createDefaultAxes();
-    int height = 70;
-    chart->axisY()->setRange(-height, height);
+    chart->axisY()->setRange(-35, 80);
     //![3]
 
     //![4]
