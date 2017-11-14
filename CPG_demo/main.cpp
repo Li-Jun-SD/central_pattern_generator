@@ -1,29 +1,5 @@
 #include "cpg.h"
 #include <math.h>
-#include <QDebug>
-
-//#include "chart.h"
-//#include <QtCharts/QChartView>
-//#include <QtWidgets/QApplication>
-//#include <QtWidgets/QMainWindow>
-
-//QT_CHARTS_USE_NAMESPACE
-
-//int main(int argc, char *argv[])
-//{
-//    QApplication a(argc, argv);
-//    QMainWindow window;
-//    Chart *chart = new Chart;
-//    chart->setTitle("Dynamic spline chart");
-//    chart->legend()->hide();
-//    chart->setAnimationOptions(QChart::AllAnimations);
-//    QChartView chartView(chart);
-//    chartView.setRenderHint(QPainter::Antialiasing);
-//    window.setCentralWidget(&chartView);
-//    window.resize(400, 300);
-//    window.show();
-//    return a.exec();
-//}
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
@@ -51,10 +27,8 @@ int main(int argc, char *argv[])
 
     //![2]
     int T = 1000;
-//    network.set(setWalk);
+    network.set(setWalk);
     for (int i = 0; i < T; i++) {
-        qDebug() << "**********" << i << "**********";
-
         if (i == 2000)
             network.set(setWalk);
         if (i == 7000)
@@ -66,8 +40,6 @@ int main(int argc, char *argv[])
         seriesRKnee->append(i, rKneeData);
         seriesLHip->append(i, lHipData);
         seriesLKnee->append(i, lKneeData);
-
-        qDebug() << " ";
     }
     //![2]
 
@@ -80,7 +52,7 @@ int main(int argc, char *argv[])
     chart->addSeries(seriesLKnee);
     chart->setTitle("Central Pattern Generator");
     chart->createDefaultAxes();
-    int height = 10;
+    int height = 70;
     chart->axisY()->setRange(-height, height);
     //![3]
 
@@ -98,3 +70,26 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+//#include "chart.h"
+//#include <QtCharts/QChartView>
+//#include <QtWidgets/QApplication>
+//#include <QtWidgets/QMainWindow>
+
+//QT_CHARTS_USE_NAMESPACE
+
+//int main(int argc, char *argv[])
+//{
+//    QApplication a(argc, argv);
+//    QMainWindow window;
+//    Chart *chart = new Chart;
+//    chart->setTitle("Dynamic spline chart");
+//    chart->legend()->hide();
+//    chart->setAnimationOptions(QChart::AllAnimations);
+//    QChartView chartView(chart);
+//    chartView.setRenderHint(QPainter::Antialiasing);
+//    window.setCentralWidget(&chartView);
+//    window.resize(400, 300);
+//    window.show();
+//    return a.exec();
+//}

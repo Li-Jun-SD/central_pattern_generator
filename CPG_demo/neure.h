@@ -17,9 +17,6 @@ private:
 
     // state parameters.
     double r[3], x[3], omega[3];
-
-    // error, which PID method use.
-    double e[3];
 };
 
 #endif // NEURE_H
